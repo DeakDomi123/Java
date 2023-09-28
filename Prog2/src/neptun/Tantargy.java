@@ -2,7 +2,7 @@ package neptun;
 
 import java.util.Objects;
 
-public class Tantargy {
+public class Tantargy implements Comparable{
     private String nev;
     private String kod;
     private String oktato;
@@ -79,5 +79,11 @@ public class Tantargy {
     @Override
     public int hashCode() {
         return Objects.hash(getKod());
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        this.getKod().compareTo(((Tantargy)o).getKod());
+        return 0;
     }
 }
