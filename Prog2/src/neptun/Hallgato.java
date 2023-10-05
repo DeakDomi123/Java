@@ -7,8 +7,8 @@ public class Hallgato extends emberekNeptun{
     private String neptunKod;
     private String szak;
     private int evfolyam;
-    private int targyakSzama;
-    private Tantargy[] tantargyak = new Tantargy[DARAB];
+    private int targyakSzama ;
+    private Tantargy[] tantargyak;
 
     public Hallgato(String nev, int szev, boolean nem, int jovedelem, String neptunKod, String szak, int evfolyam) {
         super(nev, szev, nem, jovedelem);
