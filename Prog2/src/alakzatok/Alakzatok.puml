@@ -1,0 +1,200 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface Mérhető {
+    térfogat()
+}
+
+interface Alakzat {
+    térfogat()
+    felszín()
+    dimenzio()
+}
+
+Mérhető <|-- Alakzat
+
+
+abstract class Síkidom {
+    + dimenzio()
+    + kerület()
+    + terület()
+    + {abstract} térfogat()
+    + {abstract} felszín()
+}
+note left of Síkidom::dimenzio()
+    return 2
+end note
+note left of Síkidom::kerület()
+    return felszín()
+    (template method)
+end note
+note left of Síkidom::terület()
+    return térfogat()
+    (template method)
+end note
+
+Alakzat <|-- Síkidom
+
+abstract class Test {
+    + dimenzio()
+    + {abstract} térfogat()
+    + {abstract} felszín()
+}
+note left of Test::dimenzio()
+    3
+end note
+
+Alakzat <|-- Test
+
+
+
+class Gömb {
+    - r
+    + getR()
+    + térfogat()
+    + felszín()
+}
+
+note left of Gömb::felszín
+    4*r*r/PI
+end note
+note left of Gömb::térfogat
+    r*felszín/3
+end note
+
+Test <|-- Gömb
+
+class Téglatest {
+    - a
+    - b
+    - c
+    + getA()
+    + getB()
+    + getC()
+}
+
+Test <|-- Téglatest
+
+class Kocka {
+    - a
+    + getA()
+    + térfogat()
+    + felszín()
+}
+
+Test <|-- Kocka
+
+class Kör {
+    - r
+    + getR()
+}
+
+Síkidom <|-- Kör
+
+class Téglalap {
+    - a
+    - b
+    + getA()
+    + getB()
+    + térfogat()
+    + felszín()
+    + kerület()
+    + terület()
+}
+
+Síkidom <|-- Téglalap
+
+class Négyzet {
+    - a
+    + getA()
+    + térfogat()
+    + felszín()
+    + kerület()
+    + terület()
+}
+
+Síkidom <|-- Négyzet
+
+class Háromszög {
+    - a
+    - b
+    - c
+    + getA()
+    + getB()
+    + getC()
+    + derekszogu()
+    + egyenloszaru()
+    + szabalyos()
+    + térfogat()
+    + felszín()
+    + kerület()
+    + terület()
+}
+
+Síkidom <|-- Háromszög
+note left of Háromszög::térfogat()
+    return sqrt(s(s-a)(s-b)(s-c))
+end note
+
+
+abstract class Beolvasó {
+    + {static} getBeolvasó()
+    + {abstract} beolvas()
+}
+
+
+note left of Beolvasó::getBeolvasó()
+    factory
+end note
+
+class KockaBeolvasó {
+    + beolvas()
+}
+Beolvasó <|-- KockaBeolvasó
+Beolvasó --> KockaBeolvasó
+KockaBeolvasó --> Kocka
+class TéglatestBeolvasó {
+   + beolvas()
+}
+Beolvasó <|-- TéglatestBeolvasó
+Beolvasó --> TéglatestBeolvasó
+TéglatestBeolvasó --> Téglatest
+class GömbBeolvasó {
+   + beolvas()
+}
+Beolvasó <|-- GömbBeolvasó
+Beolvasó --> GömbBeolvasó
+GömbBeolvasó --> Gömb
+class NégyzetBeolvasó {
+   + beolvas()
+}
+Beolvasó <|-- NégyzetBeolvasó
+Beolvasó --> NégyzetBeolvasó
+NégyzetBeolvasó --> Négyzet
+class HáromszögBeolvasó {
+   + beolvas()
+}
+Beolvasó <|-- HáromszögBeolvasó
+Beolvasó --> HáromszögBeolvasó
+HáromszögBeolvasó --> Háromszög
+class TéglalapBeolvasó {
+   + beolvas()
+}
+Beolvasó <|-- TéglalapBeolvasó
+Beolvasó --> TéglalapBeolvasó
+class KörBeolvasó {
+   + beolvas()
+}
+Beolvasó <|-- KörBeolvasó
+Beolvasó --> KörBeolvasó
+KörBeolvasó --> Kör
+
+/'
+Mérhető --|> Comparable
+'/
+/'
+class AlakzatComparator
+AlakzatComparator --|> Comparator
+AlakzatComparator --> Alakzat
+'/
+@enduml
