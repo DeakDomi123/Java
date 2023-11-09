@@ -6,13 +6,18 @@ public class Kor extends Sikidom{
     public Kor(int r) {
         this.r = r;
     }
+
+    public int getR() {
+        return r;
+    }
+
     @Override
     public double felszin() {
-        return 0;
+        return 2 * r * Math.PI;
     }
 
     @Override
     public double terfogat() {
-        return 0;
+        return Math.pow(r, 2) * Math.PI;
     }
 }

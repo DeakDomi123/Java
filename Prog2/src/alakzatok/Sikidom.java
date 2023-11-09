@@ -10,4 +10,13 @@ public abstract class Sikidom implements Alakzat{
     public final double terulet(){
         return terfogat();
     }
+    @Override
+    public int compareTo(Merheto o) {
+        if(o==null){
+            return 1;
+        }
+        else{
+            return Double.compare(this.terfogat(), o.terfogat());
+        }
+    }
 }

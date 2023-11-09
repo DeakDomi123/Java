@@ -3,7 +3,7 @@ package alakzatok;
 public class Negyzet extends Sikidom{
     private final int a;
 
-    public Negyzet(int a, int b, int c) {
+    public Negyzet(int a) {
         this.a = a;
     }
 

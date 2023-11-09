@@ -1,0 +1,3 @@
+alma;körte;szilva
+barack;birs
+citrom;meggy

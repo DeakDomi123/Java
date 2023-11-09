@@ -10,7 +10,10 @@ public abstract class Beolvaso {
     public abstract Alakzat beolvas();
     public static Beolvaso getBeolvaso(){
         final String tipus = scanner.nextLine();
-        if("NEGYZET".equals(tipus)){
+        if ("KOR".equals(tipus)) {
+            return new KorBeolvaso();
+        }
+        else if("NEGYZET".equals(tipus)){
             return new NegyzetBeolvaso();
         }
         else if("HAROMSZOH".equals(tipus)){

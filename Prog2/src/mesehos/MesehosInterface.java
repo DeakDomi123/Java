@@ -1,2 +1,7 @@
-package mesehos;public interface MesehosInterface {
+package mesehos;
+
+public interface MesehosInterface {
+    public void megnovel(int ennyivel);
+    public double osszegez();
+    public double ado();
 }

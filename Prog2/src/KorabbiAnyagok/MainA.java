@@ -1,5 +1,7 @@
+package KorabbiAnyagok;
+
 import static java.lang.System.out;
-public class Main {
+public class MainA {
     public static void main(String[] args) {
         char c = 'a';
         int i = 10;

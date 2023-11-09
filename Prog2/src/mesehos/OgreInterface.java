@@ -1,2 +1,5 @@
-package mesehos;public interface OgreInterface {
+package mesehos;
+
+public interface OgreInterface {
+    public boolean kiralyLanyMentes();
 }
